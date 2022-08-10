@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Zot Registry Administrator Guide :: Zot Docs</title>
+    <title>Zot Administrator Guide :: Zot Docs</title>
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -53,19 +53,32 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../developer-guide/draft-developer-guide-chapters.html">Zot-Documentation</a></h3>
+    <h3 class="title"><a href="admin-guide.html">Zot-Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installation Guide for Bare Metal Linux</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="admin-guide.html">Zot Registry Administrator Guide</a>
+    <a class="nav-link" href="admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
   </li>
 </ul>
   </li>
@@ -79,10 +92,10 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../developer-guide/draft-developer-guide-chapters.html">Zot-Documentation</a>
+      <a class="title" href="admin-guide.html">Zot-Documentation</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../developer-guide/draft-developer-guide-chapters.html">1.0</a>
+          <a href="admin-guide.html">1.0</a>
         </li>
       </ul>
     </li>
@@ -97,8 +110,8 @@
   <a href="../developer-guide/draft-developer-guide-chapters.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../developer-guide/draft-developer-guide-chapters.html">Zot-Documentation</a></li>
-    <li><a href="admin-guide.html">Zot Registry Administrator Guide</a></li>
+    <li><a href="admin-guide.html">Zot-Documentation</a></li>
+    <li><a href="admin-guide.html">Zot Administrator Guide</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/project-zot/docs-zot/edit/main/modules/admin-guide/pages/admin-guide.adoc">Edit this Page</a></div>
@@ -108,179 +121,11 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Zot Registry Administrator Guide</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#_what_is_zot">What is zot?</a>
-<ul class="sectlevel3">
-<li><a href="#_what_is_an_oci_image_registry">What is an OCI image registry?</a></li>
-</ul>
-</li>
-<li><a href="#_why_zot">Why zot?</a></li>
-</ul>
-</li>
-<li><a href="#_getting_started">Getting started</a>
-<ul class="sectlevel2">
-<li><a href="#_how_to_get_zot">How to get zot</a>
-<ul class="sectlevel3">
-<li><a href="#_supported_platforms">Supported platforms</a></li>
-<li><a href="#_full_and_minimal_binary_images">Full and minimal binary images</a></li>
-<li><a href="#_binary_image_file_naming">Binary image file naming</a></li>
-<li><a href="#_deployment_methods">Deployment methods</a></li>
-</ul>
-</li>
-<li><a href="#_deploying_a_zot_binary_image">Deploying a zot binary image</a>
-<ul class="sectlevel3">
-<li><a href="#_example_deploying_with_a_container_manager">Example: Deploying with a container manager</a></li>
-</ul>
-</li>
-<li><a href="#_building_zot_from_source">Building zot from source</a>
-<ul class="sectlevel3">
-<li><a href="#_prerequisites">Prerequisites</a></li>
-<li><a href="#_building_an_executable_binary_from_source">Building an executable binary from source</a></li>
-<li><a href="#_building_and_deploying_a_zot_container_image_from_source">Building and deploying a zot container image from source</a></li>
-</ul>
-</li>
-<li><a href="#_additional_recommended_steps">Additional recommended steps</a></li>
-<li><a href="#_launching_zot">Launching zot</a></li>
-</ul>
-</li>
-<li><a href="#_using_the_command_line_interface_zli">Using the command line interface (zli)</a>
-<ul class="sectlevel2">
-<li><a href="#_zli_chapter">What is zli?</a></li>
-<li><a href="#_how_to_get_zli">How to get zli</a>
-<ul class="sectlevel3">
-<li><a href="#_supported_platforms_2">Supported platforms</a></li>
-<li><a href="#_downloading_zli_binaries">Downloading zli binaries</a></li>
-<li><a href="#_building_zli_from_source">Building zli from source</a></li>
-</ul>
-</li>
-<li><a href="#_common_tasks_using_zli">Common tasks using zli</a>
-<ul class="sectlevel3">
-<li><a href="#_adding_a_zot_server_url">Adding a zot server URL</a></li>
-<li><a href="#_listing_images">Listing images</a></li>
-<li><a href="#_scanning_images_for_known_vulnerabilities">Scanning images for known vulnerabilities</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_configuring_zot">Configuring zot</a>
-<ul class="sectlevel2">
-<li><a href="#_config_file">Configuration file</a>
-<ul class="sectlevel3">
-<li><a href="#_extensions">Extension features</a></li>
-<li><a href="#_verifying_config">Verifying the configuration file</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_network_config">Network configuration</a></li>
-<li><a href="#_storage_configuration">Storage configuration</a>
-<ul class="sectlevel2">
-<li><a href="#_storage_config">Storage options</a></li>
-<li><a href="#_local_storage_config">Configuring local storage</a></li>
-<li><a href="#_s3_storage_config">Configuring S3 storage</a>
-<ul class="sectlevel3">
-<li><a href="#_s3_credentials">S3 Credentials</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_security_and_hardening">Security and hardening</a>
-<ul class="sectlevel2">
-<li><a href="#_authentication">Authentication</a>
-<ul class="sectlevel3">
-<li><a href="#_tls_authentication">TLS mutual authentication</a></li>
-<li><a href="#_basic_authentication">Basic authentication</a></li>
-<li><a href="#_ldap_authentication">LDAP authentication</a></li>
-<li><a href="#_bearer_authentication">Bearer authentication</a></li>
-</ul>
-</li>
-<li><a href="#_identity_based_authorization">Identity-based authorization</a></li>
-<li><a href="#_failure_delay">Preventing automated attacks with failure delay</a></li>
-<li><a href="#_rate_limiting">Rate limiting</a></li>
-</ul>
-</li>
-<li><a href="#_syncing_and_mirroring_registries">Syncing and mirroring registries</a>
-<ul class="sectlevel2">
-<li><a href="#_sync_registries">Synchronizing registries</a></li>
-</ul>
-</li>
-<li><a href="#_monitoring">Monitoring</a>
-<ul class="sectlevel2">
-<li><a href="#_logging">Logging</a></li>
-<li><a href="#_metrics_config">Metrics</a>
-<ul class="sectlevel3">
-<li><a href="#_enabling_metrics_for_a_full_zot_image_with_extensions">Enabling metrics for a full zot image with extensions</a></li>
-<li><a href="#_collecting_metrics_from_a_minimal_zot_image_using_a_node_exporter">Collecting metrics from a minimal zot image using a node exporter</a></li>
-</ul>
-</li>
-<li><a href="#_zb_chapter">Benchmarking zot with zb</a>
-<ul class="sectlevel3">
-<li><a href="#_how_to_get_zb">How to get zb</a></li>
-<li><a href="#_supported_platforms_3">Supported platforms</a></li>
-<li><a href="#_downloading_zb_binaries">Downloading zb binaries</a></li>
-<li><a href="#_building_zb_from_source">Building zb from source</a></li>
-<li><a href="#_running_zb">Running zb</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_enterprise_wide_zot">Enterprise-wide zot</a>
-<ul class="sectlevel2">
-<li><a href="#_clustering_zot">Clustering zot</a>
-<ul class="sectlevel3">
-<li><a href="#_bare_metal_deployment">Bare-metal deployment</a></li>
-<li><a href="#_kubernetes_deployment">Kubernetes deployment</a></li>
-<li><a href="#_solution_overview">Solution overview</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_advanced_topics">Advanced topics</a>
-<ul class="sectlevel2">
-<li><a href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation">Creating a trusted image pipeline with zot, cosign, and notation</a>
-<ul class="sectlevel3">
-<li><a href="#_install_and_start_a_zot_server">Install and start a zot server</a></li>
-<li><a href="#_push_or_pull_using_skopeo">Push or pull using skopeo</a></li>
-<li><a href="#_image_signatures">Image signatures</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_maintenance">Maintenance</a>
-<ul class="sectlevel2">
-<li><a href="#_scrub_config">Scrubbing the image registry</a></li>
-<li><a href="#_search_config">Searching and querying images</a></li>
-</ul>
-</li>
-<li><a href="#_reference">Reference</a>
-<ul class="sectlevel2">
-<li><a href="#_zli-command-reference">zli Command Reference</a>
-<ul class="sectlevel3">
-<li><a href="#_zli">zli</a></li>
-<li><a href="#_zli-completion">zli completion</a></li>
-<li><a href="#_zli-config">zli config</a></li>
-<li><a href="#_zli-cve">zli cve</a></li>
-<li><a href="#_zli-images">zli images</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_notices">Notices</a>
-<ul class="sectlevel2">
-<li><a href="#_bias_free_language">Bias-Free language</a></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1 class="page">Zot Administrator Guide</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revised: 2022-06-30</p>
+<p>Revised: 2022-08-09</p>
 </div>
 </div>
 </div>
