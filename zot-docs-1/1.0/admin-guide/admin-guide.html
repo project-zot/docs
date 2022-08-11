@@ -1068,7 +1068,7 @@ that contains all configuration settings for zot functions such as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "distSpecVersion": "1.0.1",
     "storage": {
         "rootDirectory": "/tmp/zot"
@@ -1080,7 +1080,7 @@ that contains all configuration settings for zot functions such as:</p>
     "log": {
         "level": "debug"
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1101,15 +1101,15 @@ the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-...
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  ...
   "extensions": {
     "metrics": {},
     "sync": {},
     "search": {},
     "scrub": {}
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -1154,18 +1154,18 @@ attribute or by including an <code>enable</code> attribute with a value of <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {}
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {
     "enable": true
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1173,17 +1173,17 @@ attribute or by including an <code>enable</code> attribute with a value of <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
+}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {
     "enable": false
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1229,7 +1229,7 @@ network settings, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "address":"127.0.0.1",
   "port":"8080",
   "realm":"zot",
@@ -1237,7 +1237,7 @@ network settings, as shown in the following example.</p>
     "cert":"test/data/server.cert",
     "key":"test/data/server.key"
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1303,14 +1303,14 @@ attribute in the configuration file, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"storage":{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"storage":{
   "rootDirectory":"/tmp/zot",
   "commit": true,
   "dedupe": true,
   "gc": true,
   "gcDelay": "1h",
   "gcInterval": "24h"
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1369,7 +1369,7 @@ their own repository paths and settings. The following example shows three subpa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"storage":{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"storage":{
   "subPaths": {
     "/a": {
       "rootDirectory": "/tmp/zot1",
@@ -1385,7 +1385,7 @@ their own repository paths and settings. The following example shows three subpa
       "dedupe": false
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1415,7 +1415,7 @@ their own repository paths and settings. The following example shows three subpa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"storageDriver": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"storageDriver": {
     "name": "s3",
     "region": "us-east-2",
     "bucket": "zot-storage",
@@ -1423,7 +1423,7 @@ their own repository paths and settings. The following example shows three subpa
     "skipverify": false,
     "accesskey": "&lt;YOUR_ACCESS_KEY_ID&gt;",
     "secretkey": "&lt;YOUR_SECRET_ACCESS_KEY&gt;"
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1432,7 +1432,7 @@ locations using the <code>subpath</code> attribute, as in the following example.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"subPaths": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"subPaths": {
     "/a": {
         "rootDirectory": "/zot-a",
         "storageDriver": {
@@ -1445,7 +1445,10 @@ locations using the <code>subpath</code> attribute, as in the following example.
     },
     "/b": {
 
-[continue]</pre>
+...
+
+    }
+}</code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -1567,13 +1570,13 @@ configure TLS mutual authentication, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "tls": {
     "cert":"test/data/server.cert",
     "key":"test/data/server.key",
     "cacert":"test/data/cacert.cert"
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1616,13 +1619,13 @@ to enable and configure local authentication, as shown in the following example.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "htpasswd": {
       "path": "test/data/htpasswd"
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1651,7 +1654,7 @@ to enable and configure LDAP authentication, as shown in the following example.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "ldap": {
       "address": "ldap.example.org",
@@ -1665,7 +1668,7 @@ to enable and configure LDAP authentication, as shown in the following example.<
       "subtreeSearch": true
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1744,7 +1747,7 @@ authentication, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "bearer": {
       "realm": "https://auth.myreg.io/auth/token",
@@ -1752,7 +1755,7 @@ authentication, as shown in the following example.</p>
       "cert": "/etc/zot/auth.crt"
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1825,7 +1828,7 @@ identity-based authorization policies, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"accessControl": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"accessControl": {
   "**": {
     "policies": [{
       "users": ["charlie"],
@@ -1864,7 +1867,7 @@ identity-based authorization policies, as shown in the following example.</p>
     "users": ["admin"],
     "actions": ["read", "create", "update", "delete"]
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1919,11 +1922,11 @@ prevent automated attacks. The configuration is shown in the following example.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "failDelay": 5
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1939,7 +1942,7 @@ attribute in the configuration file, as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
     "address": "127.0.0.1",
     "port": "8080",
     "Ratelimit": {
@@ -1951,7 +1954,7 @@ attribute in the configuration file, as shown in the following example:</p>
             }
         ]
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1974,7 +1977,7 @@ image registry with other image registries, as shown in the following example.</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
     "sync": {
         "enable": true,
         "credentialsFile": "./examples/sync-auth-filepath.json",
@@ -2043,7 +2046,7 @@ image registry with other image registries, as shown in the following example.</
             "retryDelay": "5m"
         }]
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2230,11 +2233,11 @@ configuration file, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"log":{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"log":{
   "level":"debug",
   "output":"/tmp/zot.log",
   "audit": "/tmp/zot-audit.log"
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2285,14 +2288,14 @@ to enable and configure metrics, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
     "metrics": {
         "enable": true,
         "prometheus": {
             "path": "/metrics"
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2387,7 +2390,7 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "Server": {
         "protocol": "http",
         "host": "127.0.0.1",
@@ -2399,7 +2402,7 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
             "level": "debug"
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2882,12 +2885,12 @@ configuration file, as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {
     "enable": true,
     "interval": "24h"
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2930,14 +2933,14 @@ and configure the enhanced search extension, as shown in the following example.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
     "search": {
         "enable": true,
         "cve": {
             "updateInterval": "2h"
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">

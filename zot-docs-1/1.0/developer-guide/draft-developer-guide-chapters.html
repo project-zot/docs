@@ -125,7 +125,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revised: 2022-08-09</p>
+<p>Revised: 2022-08-10</p>
 </div>
 </div>
 </div>
@@ -138,6 +138,43 @@
 <p>Development is officially supported on <code>Linux</code> and <code>Apple MacOS</code> platforms. However,
 development should be possible on any platform that supports the <code>golang</code> toolchain.</p>
 </div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Supported platforms and architectures</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OS</th>
+<th class="tableblock halign-left valign-top">ARCH</th>
+<th class="tableblock halign-left valign-top">Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based Linux servers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based servers and Raspberry Pi4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based MacOS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based MacOS (Apple M1)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a><a class="link" href="#_prerequisites">Prerequisites</a></h3>
@@ -174,60 +211,40 @@ following general syntax:</p>
 <div class="paragraph">
 <p><code>$ make OS=<em>os</em> ARCH=<em>architecture</em> {binary | binary-minimal}</code></p>
 </div>
-<div class="paragraph">
-<p>The <code>binary</code> option builds the full zot binary with all extensions.<br>
-The <code>binary-minimal</code> option builds the minimal zot binary without extensions.</p>
-</div>
-<div class="sect3">
-<h4 id="_examples"><a class="anchor" href="#_examples"></a><a class="link" href="#_examples">Examples</a></h4>
-<div class="paragraph">
-<p>The following are examples of the <code>make</code> command for several supported platforms
-and architectures:</p>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Linux/Intel-based platforms</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=linux ARCH=amd64 binary</pre>
-</div>
-</div>
+<p>The operating system and architecture options are listed in the
+<a href="#supported-platforms-and-architectures-table-zot">Supported platforms and architectures</a>
+table. If an option is not specified, the defaults are <code>linux</code> and <code>amd64</code>.</p>
 </li>
 <li>
-<p>Linux/amd64 platform</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=linux ARCH=amd64 binary</pre>
-</div>
-</div>
+<p>The <code>binary</code> option builds the full zot binary image with all extensions.</p>
 </li>
 <li>
-<p>Linux/ARM64-based platforms such as ARM64 servers and Raspberry Pi4</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=linux ARCH=arm64 binary</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Apple MacOS/Intel-based platforms</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=darwin ARCH=amd64 binary</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Apple MacOS/ARM64-based platforms</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=darwin ARCH=arm64 binary</pre>
-</div>
-</div>
+<p>The <code>binary-minimal</code> option builds the minimal distribution-spec conformant zot
+binary image without extensions, reducing the attack surface.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, to build a zot image with extensions for an Intel-based
+linux server, use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>make OS=linux ARCH=amd64 binary</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>make</code> command builds an executable image in the <code>zot/bin</code> directory.
+The original filename of the zot executable image will indicate the
+build options. For example, the filename of an Intel-based linux minimal image is
+<code>zot-linux-amd64-minimal</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -241,6 +258,28 @@ To launch the zot server, execute the following command:</p>
 <pre>$  bin/zot-linux-amd64 serve examples/config-example.json</pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging_zot"><a class="anchor" href="#_debugging_zot"></a><a class="link" href="#_debugging_zot">Debugging zot</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To produce a zot binary that includes extensive debugging information,
+build zot with the <code>binary-debug</code> option, as shown in this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>make OS=linux ARCH=amd64 binary-debug</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then attach and run a debugging tool such as Delve to the running zot process.</p>
+</div>
+<div class="paragraph">
+<p>Delve is a powerful open-source debugger for the Go programming language.
+Downloads and documentation for Delve are available on GitHub
+at <a href="https://github.com/go-delve/delve" class="bare">https://github.com/go-delve/delve</a>.</p>
 </div>
 </div>
 </div>
@@ -271,7 +310,7 @@ To launch the zot server, execute the following command:</p>
 - cmd/              # Source code for binary main()s
   - zot/            # Source code for zot binary
   - zli/            # Source code for zot cli
-  - zb/             # Source code for zb which is the dist-spec benchmarking tool
+  - zb/             # Source code for zb, the dist-spec benchmarking tool
 - errors/           # Source code for error codes
 - examples/         # Configuration examples
 - swagger/          # Swagger integration
