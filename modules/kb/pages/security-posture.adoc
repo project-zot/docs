@@ -13,6 +13,7 @@ Recognizing that security hardening and product features are sometimes in
 conflict with each other, we also provide flexibility both at
 build and deployment time.
 
+
 == Build-time hardening
 
 The following are the steps taken during build-time.
