@@ -65,7 +65,16 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../concepts/zot-concepts.html">Concepts</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -76,7 +85,10 @@
     <span class="nav-text">Installation Guides</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installation Guide for Bare Metal Linux</a>
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
   </li>
 </ul>
   </li>
@@ -92,7 +104,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
   </li>
 </ul>
   </li>
@@ -100,7 +112,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Knowledgebase Articles</span>
+    <span class="nav-text">Articles</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
@@ -214,56 +226,15 @@ should be possible on any platform that supports the <code>golang</code> toolcha
 </table>
 </div>
 <div class="sect3">
-<h4 id="_full_and_minimal_binary_images"><a class="anchor" href="#_full_and_minimal_binary_images"></a><a class="link" href="#_full_and_minimal_binary_images">Full and minimal binary images</a></h4>
+<h4 id="_about_binary_images"><a class="anchor" href="#_about_binary_images"></a><a class="link" href="#_about_binary_images">About binary images</a></h4>
 <div class="paragraph">
-<p>In addition to variations for specific platforms and architectures, images
-are also available in full and minimal implementations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image is compiled with all extensions. Extensions
-include functions such as metrics, registry synchronization, search, and scrub.</p>
-</li>
-<li>
-<p>A minimal distribution-spec conformant zot binary image is compiled with
-only a minimal set of code and libraries, reducing the attack surface. This
-option might be optimal for a registry embedded in a shipping product.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_binary_image_file_naming"><a class="anchor" href="#_binary_image_file_naming"></a><a class="link" href="#_binary_image_file_naming">Binary image file naming</a></h4>
-<div class="paragraph">
-<p>An executable binary image for zot is named using the target platform and
-architecture from the
- <a href="#supported-platforms-and-architectures-table-zot">Supported platforms and architectures</a>
- table. The general format of a binary image file name is one of these two:</p>
+<p>Executable binary zot images are available for multiple platforms and
+architectures and with full or minimal implementations.</p>
 </div>
 <div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em></code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image with all extensions has a filename of the
-form <code>zot-<em>os</em>-<em>architecture</em>.</code> For example, the full binary image for an
-Intel-based linux server is <code>zot-linux-amd64</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em>-minimal</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A minimal distribution-spec conformant zot binary image has a filename of
-the form <code>zot-<em>os</em>-<em>architecture</em>-minimal</code>. For example, the minimal binary
-image for an Intel-based linux server is <code>zot-linux-amd64-minimal</code>.</p>
-</li>
-</ul>
+<p>Refer to <a href="../general/artifacts.html" class="xref page"><em>Released Artifacts for zot</em></a>
+for information about available zot images along with information about
+image variations, image locations, and image naming formats.</p>
 </div>
 </div>
 <div class="sect3">
@@ -832,6 +803,22 @@ c3/openjdk-dev    commit-bd5cc94    0ab7fc76</pre>
 IMAGE NAME        TAG                       DIGEST    SIZE
 c3/openjdk-dev    commit-2674e8a-squashfs   b545b8ba  321MB
 c3/openjdk-dev    commit-d5024ec-squashfs   cd45f8cf  321MB</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_listing_repositories"><a class="anchor" href="#_listing_repositories"></a><a class="link" href="#_listing_repositories">Listing repositories</a></h4>
+<div class="paragraph">
+<p>You can list all repositories hosted on a zot server using the <a href="#_zli-repos"><code>zli repos</code></a> command with
+the server&#8217;s alias:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Searching... 🌍
+
+REPOSITORY NAME
+alpine
+busybox</pre>
 </div>
 </div>
 </div>
@@ -2616,16 +2603,16 @@ to the manifest.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ skopeo --insecure-policy copy --format=oci --dest-tls-verify=false \
-      docker://busybox:latest docker://localhost:5000/busybox:latest
+<pre>$ skopeo --insecure-policy copy --dest-tls-verify=false --multi-arch=all \
+   --format=oci docker://busybox:latest docker://localhost:5000/busybox:latest
 Getting image source signatures
 Copying blob 554879bc3004 done
 Copying config 02611c034a done
 Writing manifest to image destination
 Storing signatures
 
-$ skopeo --insecure-policy copy --src-tls-verify=false \
-      docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
+$ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
+   docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
 Getting image source signatures
 Copying blob 554879bc3004 done
 Copying config 02611c034a done
@@ -2941,6 +2928,27 @@ Flags:
       --url string      Specify zot server URL if config-name is not mentioned
   -u, --user string     User Credentials of zot server in "username:password" format
       --verbose         Show verbose output
+
+Run 'zli config -h' for details on [config-name] argument</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_zli-repos"><a class="anchor" href="#_zli-repos"></a><a class="link" href="#_zli-repos">zli repos</a></h4>
+<div class="paragraph">
+<p>This command lists all repositories in the zot registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ./zli repos --help
+
+Usage:
+  zli repos [config-name] [flags]
+
+Flags:
+  -h, --help          help for repos
+      --url string    Specify zot server URL if config-name is not mentioned
+  -u, --user string   User Credentials of zot server in "username:password" format
 
 Run 'zli config -h' for details on [config-name] argument</pre>
 </div>
