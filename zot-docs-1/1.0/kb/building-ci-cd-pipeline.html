@@ -150,7 +150,43 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revised: 2022-08-30</p>
+<p>Revised: 2022-09-22</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>An <strong>OCI-native</strong> secure container image build/delivery pipeline using the
+following tools:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/project-stacker/stacker"><code>stacker</code></a>
+for building OCI images</p>
+</li>
+<li>
+<p><a href="https://github.com/project-zot/zot"><code>zot</code></a>
+as a vendor-neutral OCI image registry server</p>
+</li>
+<li>
+<p><a href="https://github.com/containers/skopeo"><code>skopeo</code></a>
+for performing repository interactions</p>
+</li>
+<li>
+<p><a href="https://github.com/sigstore/cosign"><code>cosign</code></a>
+for container signing and verification</p>
+</li>
+<li>
+<p><a href="https://github.com/cri-o/cri-o"><code>cri-o</code></a>
+for deploying container images</p>
+</li>
+<li>
+<p><a href="https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart"><code>cosigned</code></a>
+for validating container images before deployment</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>The <a href="https://opencontainers.org/">Open Container Initiative (OCI)</a><sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
@@ -159,7 +195,7 @@ governance structure for the express purpose of creating open industry
 standards around container formats and runtimes.</p>
 </div>
 <div class="paragraph">
-<p>This document describes a step-by-step procedure towards achieving a OCI-native
+<p>This document describes a step-by-step procedure towards achieving an OCI-native
 secure software supply chain using
 <a href="https://github.com/project-zot/zot"><code>zot</code></a><sup class="footnote" id="_footnote_fn-zot">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
 in collaboration with other opensource
