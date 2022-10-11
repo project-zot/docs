@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Released Artifacts for zot :: Zot Docs</title>
+    <title>Benchmarking zot with zb :: Zot Docs</title>
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,10 +49,10 @@
     <span class="nav-text">General</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="zot-concepts.html">Concepts</a>
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="artifacts.html">Released Artifacts for zot</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
   </li>
 </ul>
   </li>
@@ -108,19 +108,19 @@
     <span class="nav-text">Articles</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+    <a class="nav-link" href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/authn-authz.html">User Authentication and Authorization with zot</a>
+    <a class="nav-link" href="authn-authz.html">User Authentication and Authorization with zot</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/security-posture.html">zot Security Posture</a>
+    <a class="nav-link" href="security-posture.html">zot Security Posture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
+    <a class="nav-link" href="storage.html">Storage Planning with zot</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="benchmarking-with-zb.html">Benchmarking zot with zb</a>
   </li>
 </ul>
   </li>
@@ -155,8 +155,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
-    <li>General</li>
-    <li><a href="artifacts.html">Released Artifacts for zot</a></li>
+    <li>Articles</li>
+    <li><a href="benchmarking-with-zb.html">Benchmarking zot with zb</a></li>
   </ul>
 </nav>
 </div>
@@ -165,58 +165,68 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Released Artifacts for zot</h1>
+<h1 class="page">Benchmarking zot with zb</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revised: 2022-09-08</p>
+<p>Revised: 2022-10-10</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The <code>zb</code> tool is useful for benchmarking OCI registry workloads in scenarios such as the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>comparing configuration changes</p>
+</li>
+<li>
+<p>comparing software versions</p>
+</li>
+<li>
+<p>comparing hardware/deployment environments</p>
+</li>
+<li>
+<p>comparing with other registries</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>This document describes the available zot images for the various supported hardware
-and software platforms, along with information about image variations,
-image locations, and image naming formats.</p>
+<p>With the <code>zb</code> tool, you can benchmark a <code>zot</code> registry or any other container image registry that conforms to the <a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a> published by the Open Container Initiative (OCI).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+We recommend installing and benchmarking with <code>zb</code> when you install <code>zot</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_available_releases"><a class="anchor" href="#_available_releases"></a><a class="link" href="#_available_releases">Available releases</a></h2>
+<h2 id="_how_to_get_zb"><a class="anchor" href="#_how_to_get_zb"></a><a class="link" href="#_how_to_get_zb">How to get zb</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As of the revision date of this document, the available zot versions are:</p>
+<p>The <code>zb</code> project is hosted with <code>zot</code> on GitHub at <a href="https://github.com/project-zot/zot">project-zot</a>. From GitHub, you can download the <code>zb</code> binary or you can build <code>zb</code> from the source.</p>
 </div>
-<table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 1. Available versions</caption>
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Version</th>
-<th class="tableblock halign-left valign-top">Status</th>
-<th class="tableblock halign-left valign-top">Release date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">v1.4.2-rc5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">development</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TBD</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_supported_platforms"><a class="anchor" href="#_supported_platforms"></a><a class="link" href="#_supported_platforms">Supported platforms</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>zot is supported on Linux and Apple MacOS platforms with
-Intel or ARM processors.</p>
+<p><code>zb</code> is supported for the following operating systems and platform architectures:</p>
 </div>
-<table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 2. Supported platforms and architectures</caption>
+<table id="supported-platforms-and-architectures-table-zb" class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Supported platforms and architectures</caption>
 <colgroup>
 <col>
 <col>
@@ -248,66 +258,40 @@ Intel or ARM processors.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based MacOS (Apple M1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based MacOS</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_full_and_minimal_binary_images"><a class="anchor" href="#_full_and_minimal_binary_images"></a><a class="link" href="#_full_and_minimal_binary_images">Full and minimal binary images</a></h2>
+<h2 id="_downloading_zb_binaries"><a class="anchor" href="#_downloading_zb_binaries"></a><a class="link" href="#_downloading_zb_binaries">Downloading zb binaries</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In addition to variations for specific platforms and architectures, binary images
-are also available in full and minimal flavors:</p>
+<p>Download the executable binary for your server platform and architecture under "Assets" on the GitHub <a href="https://github.com/project-zot/zot/releases">zot releases</a> page.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image is compiled with all extensions. Extensions
-include functions such as metrics, registry synchronization, search, and scrub.</p>
-</li>
-<li>
-<p>A minimal distribution-spec conformant zot binary image is compiled with
-only a minimal set of code and libraries, reducing the attack surface. This
-option might be optimal for a registry embedded in a shipping product.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The binary image is named using the target platform and architecture from the <a href="#supported-platforms-and-architectures-table-zb">Supported platforms and architectures</a> table.  For example, the binary for an Intel-based MacOS server is <code>zb-darwin-amd64</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_binary_image_file_naming"><a class="anchor" href="#_binary_image_file_naming"></a><a class="link" href="#_binary_image_file_naming">Binary image file naming</a></h2>
+<h2 id="_building_zb_from_source"><a class="anchor" href="#_building_zb_from_source"></a><a class="link" href="#_building_zb_from_source">Building zb from source</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An executable binary image for zot is named using the target platform and
-architecture from the
- <a href="#supported-platforms-zot">Supported platforms and architectures</a>
- table. The general format of a binary image file name is one of these two:</p>
+<p>To build the <code>zb</code> binary, copy or clone the <code>zot</code> project from GitHub and execute the <code>make bench</code> command in the <code>zot</code> directory. Use the same command options that you used to build <code>zot</code>, as shown:</p>
 </div>
 <div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em></code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image with all extensions has a filename of the
-form <code>zot-<em>os</em>-<em>architecture</em>.</code> For example, the full binary image for an
-Intel-based linux server is <code>zot-linux-amd64</code>.</p>
-</li>
-</ul>
+<p><code>make OS=<em>os</em> ARCH=<em>architecture</em> bench</code></p>
 </div>
 <div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em>-minimal</code></p>
+<p>For example, the following command builds <code>zb</code> for an Intel-based MacOS server:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>A minimal distribution-spec conformant zot binary image has a filename of
-the form <code>zot-<em>os</em>-<em>architecture</em>-minimal</code>. For example, the minimal binary
-image for an Intel-based linux server is <code>zot-linux-amd64-minimal</code>.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><code>make OS=darwin ARCH=amd64 bench</code></p>
+</div>
+<div class="paragraph">
+<p>In this example, the resulting executable file is <code>zb-darwin-amd64</code> in the <code>zot/bin</code> directory.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -316,8 +300,7 @@ image for an Intel-based linux server is <code>zot-linux-amd64-minimal</code>.</
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-For convenience, you can rename the binary image file to simply <code>zot</code> after
-downloading.
+A sample Dockerfile for <code>zb</code> is available at  <a href="https://github.com/project-zot/zot/blob/main/Dockerfile-zb">Dockerfile-zb</a>.
 </td>
 </tr>
 </table>
@@ -325,24 +308,8 @@ downloading.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_where_to_get_zot"><a class="anchor" href="#_where_to_get_zot"></a><a class="link" href="#_where_to_get_zot">Where to get zot</a></h2>
+<h2 id="_running_zb"><a class="anchor" href="#_running_zb"></a><a class="link" href="#_running_zb">Running zb</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The zot project is hosted on GitHub at <a href="https://github.com/project-zot/zot">project-zot</a>.</p>
-</div>
-<div class="paragraph">
-<p>zot images are currently hosted in these publicly-accessible repositories:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>zotregistry.io</p>
-</li>
-<li>
-<p>artifacthub.io</p>
-</li>
-</ul>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -350,19 +317,98 @@ downloading.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You may need to use the <code>chmod</code> command to make the image executable.
+<div class="paragraph">
+<p>The instructions and examples in this guide use <code>zb</code> as the name of the executable file.</p>
+</div>
+<div class="paragraph">
+<p>The original filename of the executable file will reflect the build options, such as <code>zb-linux-amd64.</code> For convenience, you can rename the executable to simply <code>zb.</code></p>
+</div>
 </td>
 </tr>
 </table>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_zot_licensing"><a class="anchor" href="#_zot_licensing"></a><a class="link" href="#_zot_licensing">zot Licensing</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a><a class="link" href="#_usage">Usage</a></h3>
 <div class="paragraph">
-<p>zot is released under the
-<a href="https://github.com/project-zot/zot/blob/main/LICENSE">Apache License 2.0</a>.</p>
+<p>To view the usage and options of <code>zb</code>, run the command with the <code>--help</code> option:</p>
+</div>
+<div class="paragraph">
+<p><code>bin/zb --help</code></p>
+</div>
+<div class="paragraph">
+<p>Command output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Usage:
+  zb &lt;url&gt; [flags]
+
+Flags:
+  -A, --auth-creds string      Use colon-separated BASIC auth creds
+  -c, --concurrency int        Number of multiple requests to make at a time (default 1)
+  -h, --help                   help for zb
+  -o, --output-format string   Output format of test results: stdout (default), json, ci-cd
+  -r, --repo string            Use specified repo on remote registry for test data
+  -n, --requests int           Number of requests to perform (default 1)
+  -v, --version                Show the version and exit
+  -d, --working-dir string     Use specified directory to store test data</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example"><a class="anchor" href="#_example"></a><a class="link" href="#_example">Example</a></h3>
+<div class="paragraph">
+<p>The following example executes a benchmark operation using zb.</p>
+</div>
+<div class="paragraph">
+<p><code>bin/zb <a href="http://localhost:8080" class="bare">http://localhost:8080</a> -c 10 -n 1000</code></p>
+</div>
+<div class="paragraph">
+<p>Command output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Registry URL: http://localhost:8080
+
+Concurrency Level: 2
+Total requests:    100
+Working dir:
+
+========
+Test name:            Get Catalog
+Time taken for tests: 45.397205ms
+Complete requests:    100
+Failed requests:      0
+Requests per second:  2202.7788
+
+2xx responses: 100
+
+min: 402.259µs
+max: 3.295887ms
+p50: 855.045µs
+p75: 971.709µs
+p90: 1.127389ms
+p99: 3.295887ms
+
+========
+Test name:            Push Monolith 1MB
+Time taken for tests: 952.336383ms
+Complete requests:    100
+Failed requests:      0
+Requests per second:  105.00491
+
+2xx responses: 100
+
+min: 11.125673ms
+max: 26.375356ms
+p50: 18.917253ms
+p75: 21.753441ms
+p90: 24.02137ms
+p99: 26.375356ms
+
+...</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
