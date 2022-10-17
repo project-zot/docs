@@ -120,6 +120,9 @@
     <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
   </li>
 </ul>
@@ -1865,85 +1868,10 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
 <div class="sect2">
 <h3 id="_clustering_zot"><a class="anchor" href="#_clustering_zot"></a><a class="link" href="#_clustering_zot">Clustering zot</a></h3>
 <div class="paragraph">
-<p>Zot supports a clustering scheme with stateless zot instances/replicas and a
-shared remote storage to ensure high-availability of the zot registry.  With
-this scheme, should a few replicas fail or become unavailable, the registry
-service remains available. In addition, this scheme can increase
-aggregate network throughput by load balancing across the many zot replicas.</p>
+<p>To ensure high-availability of the registry,<code>zot</code> supports a clustering scheme with stateless <code>zot</code> instances/replicas fronted by a loadbalancer and a shared remote backend storage. This scheme allows the registry service to remain available even if a few replicas fail or become unavailable. Loadbalancing across many zot replicas can also increase aggregate network throughput.</p>
 </div>
 <div class="paragraph">
-<p>Clustering is supported both in bare-metal and Kubernetes environments.</p>
-</div>
-<div class="sect3">
-<h4 id="_bare_metal_deployment"><a class="anchor" href="#_bare_metal_deployment"></a><a class="link" href="#_bare_metal_deployment">Bare-metal deployment</a></h4>
-<div class="sect4">
-<h5 id="_prerequisites_2"><a class="anchor" href="#_prerequisites_2"></a><a class="link" href="#_prerequisites_2">Prerequisites</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>A highly-available loadbalancer such as HaProxy configured to point to backend
-zot replicas</p>
-</li>
-<li>
-<p>Remote storage (mounted locally or S3-compatible)</p>
-</li>
-<li>
-<p>Zot configuration using above remote storage and with deduplication
-and garbage-collection disabled</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_kubernetes_deployment"><a class="anchor" href="#_kubernetes_deployment"></a><a class="link" href="#_kubernetes_deployment">Kubernetes deployment</a></h4>
-<div class="sect4">
-<h5 id="_prerequisites_3"><a class="anchor" href="#_prerequisites_3"></a><a class="link" href="#_prerequisites_3">Prerequisites</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Helm (latest stable release)</p>
-</li>
-<li>
-<p>Kubernetes (latest stable release)</p>
-</li>
-<li>
-<p>Ingress controller</p>
-</li>
-<li>
-<p>Remote storage (S3-compatible)</p>
-</li>
-<li>
-<p>Zot configuration file specifying the above remote storage and
-with deduplication and garbage-collection disabled</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If authentication is enabled on zot itself, that configuration
-must also be identical across all replicas.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_solution_overview"><a class="anchor" href="#_solution_overview"></a><a class="link" href="#_solution_overview">Solution overview</a></h4>
-<div class="paragraph">
-<p>clients &#8592;&#8594; loadbalancer &#8592;&#8594; [zot replicas] &#8592;&#8594; [[remote storage]]</p>
-</div>
-<div class="paragraph">
-<p>All incoming requests from clients are first intercepted at the load balancer
-and are then routed to one of the zot replicas, which then interfaces
-with the remote storage.</p>
-</div>
+<p>For detailed information about clustering with <code>zot</code>, see <a href="../kb/clustering.html" class="xref page">zot Clustering</a>.</p>
 </div>
 </div>
 </div>
