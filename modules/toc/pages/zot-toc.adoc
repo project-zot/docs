@@ -26,7 +26,9 @@ server based purely on OCI standards.
 
 * User Guides
 
-** xref:user-guides:user-guide-datapath.adoc[Using zot with Datapath Clients]
+** xref:user-guides:user-guide-datapath.adoc[Pushing and Pulling Image Content]
+
+** xref:user-guides:user-guide.adoc[Pulling Image Content with the zot GUI]
 
 * xref:admin-guide:admin-guide.adoc[Administrator Guide]
 
@@ -49,6 +51,6 @@ server based purely on OCI standards.
 
 * xref:kb:storage.adoc[Storage Planning]
 
-* xref:kb:clustering.adoc[zot Clustering]
+* xref:kb:clustering.adoc[Clustering]
 
 * xref:kb:benchmarking-with-zb.adoc[Benchmarking zot with zb]

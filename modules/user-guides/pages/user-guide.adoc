@@ -1,0 +1,151 @@
+= Pulling Image Content with the zot GUI
+:doctype: book
+:icons: font
+:source-highlighter: highlight.js
+:sectlinks:
+:imagesdir: ../images
+//:toc:
+
+Revised: 2022-10-20
+
+====
+The `zot` GUI provides a user-friendly web interface for browsing, searching, and downloading images from a `zot` registry. 
+====
+
+When you access the `zot` GUI with your browser, `zot` detects whether authentication is required.  If anonymous access is allowed, you enter the main page; otherwise, you may be asked to provide credentials.  The initial page displays tiles of the most popular image repositories along with a "news feed" of popular and recently updated repositories. 
+
+Repositories are presented as "image tiles," which provide basic repository information such as repository name, image signature status, vulnerabilities status, tags, author, and number of downloads.
+
+image::zot-home.jpg[width=600]
+
+Click any of the displayed image tiles to view details, or search for an image or repository that is not displayed.
+
+== Searching for an image
+
+Enter an image name in the search box and click the search icon.
+
+image::zot-gui-search.jpg[width=600]
+
+The search results are displayed along with a set of filters that can be applied to refine the search results. The filters include the following image attributes:
+
+- Intended operating system of the image
+- Intended hardware architecture of the image
+- Whether the image is signed
+
+image::zot-gui-search-results.jpg[width=600]
+
+NOTE: The filters appear only if you click the search icon instead of selecting an autosuggested name.
+
+Applying filters if needed, click the image tile that you're searching for.
+
+
+== Viewing image versions and details
+
+When you select an image tile, the image repository's **OVERVIEW**  page opens.
+
+image::zot-gui-python.jpg[width=600]
+
+This page and its subpages display the source repository, the number of downloads, the last publish date, the image size, and a link to the licensing information.
+
+On the **OVERVIEW** page, click **TAGS** to view the available versions of the image.
+
+image::zot-gui-tags.jpg[width=600]
+
+=== Viewing a specific image version
+
+Click a specific tag to see details of that image version.
+
+The page for a specific image version opens with the image **LAYERS** tab, showing components of the image file.
+
+image::zot-gui-layers.jpg[width=600]
+image::zot-gui-layers2.jpg[width=600]
+
+=== Viewing image dependencies
+
+Click the **USES** tab to see what other images are used by this image. Vulnerabilities in included images may affect this image.
+
+image::zot-gui-uses.jpg[width=600]
+
+Click the **USED BY** tab to see what other images use this image.
+
+image::zot-gui-usedby.jpg[width=600]
+
+=== Viewing image vulnerabilities
+
+Click the **VULNERABILITES** tab to see what security issues have been identified in this image.
+
+image::zot-gui-vulnerabilities.jpg[width=600]
+
+Expand **Description** to learn more about the specific vulnerability.
+
+Expand **Fixed in** to see what releases, if any, contain the fix for the vulnerability.
+
+== Downloading an image
+
+To select an image file to download, go to the image repository's page, select the **TAGS** tab, and click the tag for the desired image version.
+
+image::zot-gui-tags.jpg[width=600]
+
+Follow these steps to download the image:
+
+a. Click the "Pull this image" dropdown list and choose the command for your preferred image management tool, such as docker, podman, or skopeo.   
++
+image::zot-gui-pull.jpg[width=600]
+
+b. Click the copy icon to copy the displayed command to your clipboard.
+
+c. Paste the command into a command terminal on your computer, adding any command options and your desired destination if required.
+
+=== Examples
+
+==== Example: using podman
+
+After copying the podman command to the clipboard, the clipboard contains: 
+
+----
+podman pull example.com:5000/python:bullseye
+----
+
+Using podman with no additional command options:
+
+[source,shell]
+----
+$ podman pull example.com:5000/python:bullseye
+
+Trying to pull example.com:5000/python:bullseye...
+Getting image source signatures
+Copying blob sha256:44a4e3e9ddceb1ada68a7dfef160895ca14332b0aabef7076036c3458b43152e
+Copying config sha256:31b47acb761b50fe4a8669b73340c2a57a9f669f447525fd9a13f97e592661bf
+Writing manifest to image destination
+Storing signatures
+31b47acb761b50fe4a8669b73340c2a57a9f669f447525fd9a13f97e592661bf
+$
+----
+
+==== Example: using skopeo
+
+After copying the skopeo command to the clipboard, the clipboard contains: 
+----
+skopeo copy docker://example.com:5000/python:bullseye
+----
+
+Adding command options and a copy destination:
+
+[source,shell]
+----
+$ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
+   docker://example.com:5000/python:bullseye \
+   oci:/oci/images:python:bullseye
+
+Getting image source signatures
+Copying blob 600c24b8ba39 skipped: already exists  
+Copying blob 30585fbbebc6 skipped: already exists  
+Copying blob 18f4ffdd25f4 skipped: already exists  
+Copying blob fd42b079d0f8 skipped: already exists  
+Copying blob 9dc932c8fba2 skipped: already exists  
+Copying blob 31b3f1ad4ce1 skipped: already exists  
+Copying config c8283df2e9 done  
+Writing manifest to image destination
+Storing signatures
+$
+----

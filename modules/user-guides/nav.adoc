@@ -1,2 +1,3 @@
 * User Guides
 ** xref:user-guide-datapath.adoc[]
+** xref:user-guide.adoc[]

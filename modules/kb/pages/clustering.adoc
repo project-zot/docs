@@ -1,4 +1,4 @@
-= zot Clustering
+= Clustering
 :doctype: book
 :icons: font
 :sectlinks:

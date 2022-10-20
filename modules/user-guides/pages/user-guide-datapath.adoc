@@ -1,4 +1,4 @@
-= Push and Pull Image Content
+= Pushing and Pulling Image Content
 :doctype: book
 :icons: font
 :source-highlighter: highlight.js
