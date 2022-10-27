@@ -20,6 +20,8 @@ server based purely on OCI standards.
 
 * xref:general:zot-concepts.adoc[Concepts]
 
+* xref:architecture:architecture.adoc[Architecture]
+
 * xref:general:artifacts.adoc[Released Artifacts]
 
 == Guides
